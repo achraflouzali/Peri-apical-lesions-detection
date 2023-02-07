@@ -6,7 +6,7 @@ Pour l'utilisation de ce modèle, il faut avoir une version de Python entre 3.7 
 
 ### a) Création et activation de l'environnement 
 
-Sur une invite de commandes on exécutes les commandes suivantes pour créer et activer l'environnement (Je l'ai nommé Projet3A)
+Sur une invite de commandes on exécute les commandes suivantes pour créer et activer l'environnement (Je l'ai nommé Projet3A)
 
 
 ```python
@@ -105,9 +105,24 @@ La configuration optimale a été trouvée à l'aide de cette configuration (Ent
 python train.py --data lesions.yaml --epochs 600 --weights '' --img 1200 --cfg ./models/yolov5s.yaml
 ```
 
-Après l'entraînement, le modèle crée un dossier train dans runs contenant les résultats d'entraînemnt, les paramètres du modèle optimal trouvé, et la prédiction du modèle sur les images de validation
+Après l'entraînement, le modèle crée un dossier train dans runs contenant les résultats d'entraînemnt, les paramètres du modèle optimal trouvé sous forme de fichiet pt (best.pt), et la prédiction du modèle sur les images de validation
+
+La commande ci-dessus a permis de trouver la configuration optimale que j'ai mis sur le github sous le nom de finalbest.pt, on peut utiliser cette configuration pour:
+
+1) Prédire la position des lésions sur des images radiographiques en utilisant le fichier val.py ou detect.py
+
+2) Refaire un entraînement du modèle à partir de cette configuration (dans le cas d'ajout de nouvelles images ou qu'on veut changer de nombre d'epochs ou dimensions d'images
+
+Pour la prédiction on utilise le fichier val.py qui utilise le modèle yolov5 avec la configuration en argument pour prédire sur les images 
 
 
 ```python
+python val.py weights-- finalbest.pt  task-- test data-- lesions.yaml
+```
 
+Pour l'entraînement, on utilise le fichier train.py décrit avant en mettant pour l'argument weights la configuration trouvée
+
+
+```python
+python train.py --data lesions.yaml --epochs 600 --weights finalbest.pt --img 1200 --cfg ./models/yolov5s.yaml
 ```
