@@ -117,7 +117,7 @@ Pour la prédiction on utilise le fichier val.py qui utilise le modèle yolov5 a
 
 
 ```python
-python val.py weights-- finalbest.pt  task-- test data-- lesions.yaml
+python val.py --weights finalbest.pt  --task test --data lesions.yaml
 ```
 
 Pour l'entraînement, on utilise le fichier train.py décrit avant en mettant pour l'argument weights la configuration trouvée
