@@ -66,7 +66,6 @@ def move_files_to_folder(list_of_files, destination_folder):
 
 def find_num(string):
 
-    # Use a regular expression to find all numbers in the string
     numbers = re.findall(r'\d+', string)[0]
     return numbers
 
