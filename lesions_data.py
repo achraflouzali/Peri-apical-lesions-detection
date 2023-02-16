@@ -1,21 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[5]:
 
-
-#clone YOLOv5 and 
-
-# In[133]:
-
-
-
-
-# In[1]:
-
-
-
-# for displaying images
 import os 
 import random
 import numpy as np
@@ -76,8 +62,6 @@ def move_files_to_folder(list_of_files, destination_folder):
             assert False
 
 
-# In[2]:
-
 
 
 def find_num(string):
@@ -87,8 +71,6 @@ def find_num(string):
     return numbers
 
 
-
-# In[3]:
 
 
 def extract_info_from_xml(xml_file):
@@ -122,26 +104,17 @@ def extract_info_from_xml(xml_file):
     return info_dict
 
 
-# In[4]:
 
 
 
 def convert_dicom_folder_to_png(dicom_folder, png_folder):
-    """
-    Convert all DICOM images in a given folder to PNG images and save them in another folder
-    """
-    # check if the output folder exists, if not create it
     if not os.path.exists(png_folder):
         os.makedirs(png_folder)
 
-    # loop through all files in the dicom folder
     for filename in os.listdir(dicom_folder):
-        # check if the file is a DICOM file
         if not filename.endswith('.dcm'):
             continue
-        # construct the full file path
         dicom_file = os.path.join(dicom_folder, filename)
-        # Open the DICOM file using pydicom
         dicom_image = pydicom.dcmread(dicom_file)
 
         new_image = dicom_image.pixel_array.astype(float)
@@ -150,66 +123,39 @@ def convert_dicom_folder_to_png(dicom_folder, png_folder):
         scaled_image = np.uint8(scaled_image)
         final_image = Image.fromarray(scaled_image)
         pil_image=final_image.resize((512,256))
-
-        # Convert the DICOM image to a PIL image
-
-        # construct the output file path
         png_file = os.path.join(png_folder, os.path.splitext(filename)[0] + ".png")
-
-        # Save the PIL image as a PNG file
         pil_image.save(png_file)
 
 
-# In[5]:
 
 
 class_name_to_id_mapping = {"lesion": 0}
 
-# Convert the info dict to the required yolo format and write it to disk
 def convert_to_yolov5(info_dict):
     print_buffer = []
     
-    # For each bounding box
     for b in info_dict["bboxes"]:
         try:
             class_id = class_name_to_id_mapping[b["class"]]
         except KeyError:
             print("Invalid Class. Must be one from ", class_name_to_id_mapping.keys())
-        
-        # Transform the bbox co-ordinates as per the format required by YOLO v5
         b_center_x = (b["xmin"] + b["xmax"]) / 2 
         b_center_y = (b["ymin"] + b["ymax"]) / 2
         b_width    = (b["xmax"] - b["xmin"])
         b_height   = (b["ymax"] - b["ymin"])
         
-        # Normalise the co-ordinates by the dimensions of the image
         image_w, image_h, image_c = info_dict["image_size"]  
         b_center_x /= image_w 
         b_center_y /= image_h 
         b_width    /= image_w 
         b_height   /= image_h 
         
-        #Write the bbox details to the file 
         print_buffer.append("{} {:.3f} {:.3f} {:.3f} {:.3f}".format(class_id, b_center_x, b_center_y, b_width, b_height))
-    # Name of the file which we have to save 
     save_file_name = os.path.join( info_dict["filename"].replace("png", "txt"))
     print(save_file_name)
-
-    # Save the annotation to disk
     print("\n".join(print_buffer), file= open(save_file_name, "w"))
 
 
-# In[6]:
-
-
-
-def flip_image_horizontally(input_file, output_file):
-    with Image.open(input_file) as img:
-        img = ImageOps.mirror(img)
-        img.save(output_file)
-
-
-# In[7]:
 
 
 
@@ -224,27 +170,21 @@ def flip_png_images_in_folder(folder_path):
             flipped_image.save(new_file_path)
 
 
-# In[8]:
-
 
 def modify_txt_file(file_path):
-    # Open the input file for reading
     with open(file_path, 'r') as file:
         lines = file.readlines()
     
-    # Modify the second column of each line
     for i, line in enumerate(lines):
         columns = line.split()
         
         lines[i] = ' '.join(columns) + '\n'
     
-    # Write the modified content to a new file
     new_file_path = file_path.replace('.txt', '_t.txt')
     with open(new_file_path, 'w') as file:
         file.writelines(lines)
 
 
-# In[9]:
 
 
 def common_named_files(folder1, folder2):
@@ -254,7 +194,6 @@ def common_named_files(folder1, folder2):
     return ['images/'+f + ".png" for f in common_names], ['labels/'+f + ".txt" for f in common_names]
 
 
-# In[10]:
 
 
 
