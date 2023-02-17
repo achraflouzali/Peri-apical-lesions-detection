@@ -71,7 +71,7 @@ Après qu'on a organisé le dossier yolov5, on peut passer à la conversion et r
 
 
 ```python
-python lesions_f.py chemin/vers/fichier/xml  chemin/vers/images
+python lesions_data.py chemin/vers/fichier/xml  chemin/vers/images
 ```
 
 Cette commande permet de:
