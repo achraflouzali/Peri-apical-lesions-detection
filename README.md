@@ -117,7 +117,7 @@ Pour la prédiction on utilise le fichier val.py qui utilise le modèle yolov5 a
 
 
 ```python
-python val.py --weights finalbest.pt  --task test --data lesions.yaml
+python val.py --weights finalbest.pt  --task test --data lesions.yaml --img 1200
 ```
 
 Pour la détection sur des nouvelles images on utilise le fichier detect.py 
