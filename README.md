@@ -120,9 +120,7 @@ Pour la prédiction on utilise le fichier val.py qui utilise le modèle yolov5 a
 python val.py --weights finalbest.pt  --task test --data lesions.yaml
 ```
 
-Pour l'entraînement, on utilise le fichier train.py décrit avant en mettant pour l'argument weights la configuration trouvée
-
+Pour la détection sur des nouvelles images on utilise le fichier detect.py 
 
 ```python
-python train.py --data lesions.yaml --epochs 600 --weights finalbest.pt --img 1200 --cfg ./models/yolov5s.yaml
-```
+python detect.py --weights finalbest.pt --source chemin/vers/images
