@@ -95,7 +95,7 @@ batch: taille du batch
 
 cfg: Configuration du modèle
 
-weights: Pour montrer au modèle les poids donnés au paramétres au début
+weights: Pour montrer au modèle les poids donnés au paramétres au début (on peut lui passer finalbest.pt pour commencer l'entraînement depuis la configuration optimale trouvée)
     
 
 La configuration optimale a été trouvée à l'aide de cette configuration (Entraînement du modèle yolov5s sur des images de (1200,1200) avec un batch de 32)
