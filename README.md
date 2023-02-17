@@ -124,6 +124,6 @@ Pour la détection sur des nouvelles images on utilise le fichier detect.py
 
 ```python
 python detect.py --weights finalbest.pt --source chemin/vers/images --img 1200
-
+```
 
 Pour plus de détails n'hésitez pas à me contacter par mail: achraflouzali@gmail.com
