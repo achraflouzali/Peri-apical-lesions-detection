@@ -1,0 +1,9 @@
+train: ../lesions/images/train/
+val: ../lesions/images/val/
+test: ../lesions/images/test/
+
+# number of classes
+nc: 1
+
+# class names
+names: ["lesion"]
