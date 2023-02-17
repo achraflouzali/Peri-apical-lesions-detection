@@ -113,7 +113,7 @@ La commande ci-dessus a permis de trouver la configuration optimale que j'ai mis
 
 2) Refaire un entraînement du modèle à partir de cette configuration (dans le cas d'ajout de nouvelles images ou qu'on veut changer de nombre d'epochs ou dimensions d'images
 
-Pour la prédiction on utilise le fichier val.py qui utilise le modèle yolov5 avec la configuration en argument pour prédire sur les images 
+Pour la prédiction on utilise le fichier val.py qui utilise le modèle yolov5 avec la configuration en argument pour prédire sur les images de test ou de validation (on met le nom de la base de données en argument --task)
 
 
 ```python
