@@ -123,4 +123,4 @@ python val.py --weights finalbest.pt  --task test --data lesions.yaml
 Pour la détection sur des nouvelles images on utilise le fichier detect.py 
 
 ```python
-python detect.py --weights finalbest.pt --source chemin/vers/images
+python detect.py --weights finalbest.pt --source chemin/vers/images --img 1200
