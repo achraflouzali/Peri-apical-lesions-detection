@@ -129,6 +129,10 @@ python detect.py --weights finalbest.pt --source chemin/vers/images --img 1200
 
 Résultats finaux 
 
-![Image Description](predictions.jpg)
+Résultats finaux 
+<div style="display:flex;">
+  <img src="labels.jpg" alt="Image 1" style="width:50%;">
+  <img src="predictions.jpg" alt="Image 2" style="width:50%;">
+</div>
 
 Pour plus de détails n'hésitez pas à me contacter par mail: achraflouzali@gmail.com
