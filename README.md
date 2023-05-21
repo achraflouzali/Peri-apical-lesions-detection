@@ -131,8 +131,8 @@ Résultats finaux
 
 Résultats finaux 
 <div style="display:flex;">
-  <img src="labels.jpg" alt="Image 1" style="width:50%;">
-  <img src="predictions.jpg" alt="Image 2" style="width:50%;">
+  <img src="labels.jpg" alt="Image 1" style="float:left; width:50%;">
+  <img src="predictions.jpg" alt="Image 2" style="float:right; width:50%;">
 </div>
 
 Pour plus de détails n'hésitez pas à me contacter par mail: achraflouzali@gmail.com
