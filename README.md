@@ -131,6 +131,30 @@ python detect.py --weights finalbest.pt --source chemin/vers/images --img 1200
 
 
 ## Courbes de loss et précision moyenne
+<table>
+  <tr>
+    <td align="center">
+      <img src="results.png" alt="Image" style="width:100%;">
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <strong>Courbes de loss, précision moyenne et recall</strong>
+    </td>
+  </tr>
+</table>
+
+La métrique utilisée pour l'évaluation est basée sur l'IoU définie par le quotient de la surface de l'intersection entre la zone prédite et la zone réelle  sur la surface d'union de ces deux zones.
+map@0.5 définit la précision moyenne avec un seuil de 0.5 pour l'IoU (i.e on ne considére qu'un résultat est vrai positif que si l'IoU dépasse le seuil de 0.5.
+Les résultats peuvent être résumés dans ce tableau :
+|                 | Yolov5          |
+| --------------- | --------------- |
+| Précision       | 0.992           |
+| Recall          | 0.775           |
+| F1-score        | 0.87            |
+
+On peut aussi visualiser les résultats en faisant les prédictions sur l'ensemble de validation
+
 ## Prédictions 
 
 <table>
