@@ -127,12 +127,27 @@ python detect.py --weights finalbest.pt --source chemin/vers/images --img 1200
 ```
 
 
-Résultats finaux 
+# Résultats finaux 
 
-Résultats finaux 
-<div style="display:flex;">
-  <img src="labels.jpg" alt="Image 1" style="float:left; width:50%;">
-  <img src="predictions.jpg" alt="Image 2" style="float:right; width:50%;">
-</div>
+
+## Courbes de loss et précision moyenne
+## Prédictions 
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="labels.jpg" alt="Image 1" style="width:100%;">
+      <br>
+      <strong>Labels</strong>
+    </td>
+    <td align="center">
+      <img src="predictions.jpg" alt="Image 2" style="width:100%;">
+      <br>
+      <strong>Prédictions</strong>
+    </td>
+  </tr>
+</table>
+
+
 
 Pour plus de détails n'hésitez pas à me contacter par mail: achraflouzali@gmail.com
